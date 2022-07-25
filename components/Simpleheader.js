@@ -81,9 +81,9 @@ const styles=StyleSheet.create({
 
 
     firstbox:{
-        flex:0.12,
+        // flex:0.5,
         backgroundColor:'white'
-        
+        ,height:hp(10)
     
     },
     Upperbox:{

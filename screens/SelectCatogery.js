@@ -33,7 +33,7 @@ export default function JobSelection({ navigation },props) {
 		
 		<View style={{ flex: 1, backgroundColor: '#512F7F' }}>
 			
-			<Simpleheader navigation={navigation} show={true}   />
+			<Simpleheader navigation={navigation} show={true}  backScreen="SignUp" />
 			
 			{/* Content view  */}
 			<View style={styles.contentview}>

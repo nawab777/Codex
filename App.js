@@ -29,6 +29,8 @@ import Recordvideo from './screens/recordvideo';
 import Uploadvideo from './screens/uploadvideo';
 import Completeprofile from './screens/Completeprofile';
 import Timeline from './screens/Timeline';
+import Jobdetails from './screens/Jobdetails';
+import Editprofile from './screens/Editprofile';
 const App = () => {
   const Stack=createNativeStackNavigator();
   return (
@@ -43,6 +45,8 @@ const App = () => {
       <Stack.Screen   name='Uploadvideo'  component={Uploadvideo}/>
       <Stack.Screen   name='Completeprofile'  component={Completeprofile}/>
       <Stack.Screen   name='Timeline'  component={Timeline}/>
+      <Stack.Screen   name='Jobdetails'  component={Jobdetails}/>
+      <Stack.Screen   name='Editprofile'  component={Editprofile}/>
 </Stack.Navigator>
 
 

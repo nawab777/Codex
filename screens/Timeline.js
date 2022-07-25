@@ -35,7 +35,7 @@ const Timeline = ({navigation}) => {
         <View style={styles.UpperContainer}>
           <View style={styles.upperbox1}>
             <View style={styles.upperpartb1}>
-              <TouchableOpacity style={styles.editprofilebtn}>
+              <TouchableOpacity style={styles.editprofilebtn} onPress={()=>navigation.navigate('Editprofile')}>
                 <Text style={{color: 'white', fontWeight: 'bold'}}>
                   پروفائل میں ترمیم کریں
                 </Text>

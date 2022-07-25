@@ -79,7 +79,7 @@ const Makevideo = ({navigation}) => {
   return (
     <View style={styles.mainbody}>
       
-	 <Simpleheader navigation={navigation}  show={false} />
+	 <Simpleheader navigation={navigation}  show={false} backScreen='SelectCatogery' />
       <ScrollView style={{flex: 1, backgroundColor: 'white',borderTopLeftRadius:65}}>
         
 		

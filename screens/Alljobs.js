@@ -17,7 +17,9 @@ import {
 const Alljobs=({navigation})=>{
   return(
       <View style={{flex:1,backgroundColor:'white'}}>
+    
       <View style={{flex:0.27,marginVertical:13,backgroundColor:'white',padding:10,elevation:5,borderColor:'#ECECEC',borderWidth:1}}>
+       <Pressable onPress={()=>navigation.navigate('Jobdetails')}>
        <View style={{flexDirection:'row',width:wp(88),justifyContent:'space-between',alignSelf:'flex-end',marginVertical:13}}>
         <View style={{alignSelf:'flex-start'}}>
         <Image source={require('../assets/driver.png')} style={{width:40,height:40,resizeMode:'contain',borderRadius:20}} />
@@ -72,9 +74,9 @@ const Alljobs=({navigation})=>{
 
       </View>
 
-
+      </Pressable>
       </View>
-
+     
 
       </View>
     
