@@ -60,6 +60,7 @@ import JobSelection from "./SelectCatogery";
 
 
  }
+ 
    return(
     <ScrollView style={{flex:1}}>
     <View style={{flex:1,backgroundColor:'#512F7F'}}>
