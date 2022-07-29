@@ -18,13 +18,17 @@ const Aboutjobs=({navigation})=>{
 return(
 <View style={{flex:1,backgroundColor:'white'}}>
     <View style={styles.contentbox}>
-        <View style={{flexDirection:'row',marginTop:4,backgroundColor:'red',flex:1,width:wp(27),backgroundColor:'green',borderTopRightRadius:15,borderBottomRightRadius:15}}>
-            <Image   />
+        <View style={{flexDirection:'row',marginTop:4,borderStartColor:'pink',width:wp(27),backgroundColor:'#189763',borderTopRightRadius:15,borderBottomRightRadius:15,padding:5}}>
+        <View style={{justifyContent:'center',borderRadius:1,marginVertical:1}}>       
+                 <Image source={require('../assets/Tick.png')}
+                        style={{width: 15, height: 15,resizeMode:'center',marginHorizontal:3,backgroundColor:'white',alignSelf:'center',borderRadius:10,tintColor:'#189763'}}
+                  />
+                  </View>
             <Text style={{color:'white',fontSize:12,fontWeight:'bold',alignSelf:'center',marginHorizontal:5}}>Short Listed</Text>
-        </View>
+    </View>
 
         {/* date,title,img */}
-    <View style={{flexDirection:'row',alignItems:'center'}}>
+    <View style={{flexDirection:'row',alignItems:'flex-start'}}>
     <View style={{flex:0.5,justifyContent:'center',marginHorizontal:10}}>
 <Text>date</Text>
 
@@ -78,7 +82,7 @@ const styles=StyleSheet.create({
 contentbox:{
   marginHorizontal:15,
   marginVertical:6,
-  flex:0.14,
+  flex:0.19,
   elevation:2,
   backgroundColor:'white',
   

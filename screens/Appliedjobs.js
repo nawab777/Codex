@@ -74,9 +74,10 @@ const styles=StyleSheet.create({
 contentbox:{
   marginHorizontal:15,
   marginVertical:6,
-  flex:0.12,
+  flex:0.14,
   elevation:2,
   backgroundColor:'white',
+  
   
 
 },

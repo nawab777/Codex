@@ -24,7 +24,7 @@ const Timeline = ({navigation}) => {
   const Tab = createMaterialTopTabNavigator();
 
   return (
-    <ScrollView style={styles.mainbody}>
+    <View style={styles.mainbody}>
       <Simpleheader
         navigation={navigation}
         show={true}
@@ -101,7 +101,7 @@ const Timeline = ({navigation}) => {
         </View>
       </View>
       
-    </ScrollView>
+    </View>
   );
 };
 

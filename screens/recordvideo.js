@@ -28,6 +28,7 @@ const Recordvideo = ({navigation}) => {
 
   const capturevideo = async () => {
     if (isrecording == true) {
+      setisrecording(false);setcolor(true);
       try {
         const promise = recordVideo({
           maxDuration: 30,
@@ -36,7 +37,7 @@ const Recordvideo = ({navigation}) => {
           let data = await promise;
           console.log('data saved to :', data.uri);
           const filename = data.uri;
-          setisrecording(false);
+          
           setvideo(data);
         }
       } catch (error) {
@@ -50,14 +51,17 @@ const Recordvideo = ({navigation}) => {
 
   const onRecordingEnd = () => {
     console.log('RECORDING ENDED');
-    setisrecording(true);
-    navigation.navigate('Uploadvideo', video);
+
+   navigation.navigate('Uploadvideo', video);
+   
   };
   const recordend = () => {
-    setTimeout(()=>{setisrecording(false);},2000)
+    
     stopRecording();
     setcolor(false);
-    setTimeout(()=>{console.log('recordind ended', isrecording);},2000)
+    setTimeout(()=>{setisrecording(true);},2000);
+    setTimeout(()=>{console.log('recordind ended', isrecording);},1000);
+    
     
   };
   return (
@@ -66,7 +70,7 @@ const Recordvideo = ({navigation}) => {
         <RNCamera
           ref={cameraRef}
           type={RNCamera.Constants.Type.front}
-          onCameraReady={capturevideo}
+          // onCameraReady={capturevideo}
           style={style.recordercamera}
           androidCameraPermissionOptions={{
             title: 'Permission to use camera',
@@ -91,15 +95,34 @@ const Recordvideo = ({navigation}) => {
             position: 'absolute',
             alignSelf: 'center',
           }}>
-          <TouchableOpacity>
-            <Pressable
-              onPress={() => {
-                recordend();
-              }}
-              style={style.recordbutton}>
-              <Ionicons name="stop" color={color ? 'red' : 'black'} size={42} />
-            </Pressable>
-          </TouchableOpacity>
+          <TouchableOpacity >
+           
+            { isrecording &&(
+                  <Pressable
+                  onPress={() => {
+                    capturevideo();
+                  }}
+                  style={style.recordbutton}>
+                    
+                  <Ionicons name="caret-forward-circle-sharp" color='red' size={42} />
+                    
+                </Pressable>
+
+            ) }
+            {!isrecording &&(
+                  <Pressable
+                  onPress={() => {
+                    recordend();
+                  }}
+                  style={style.recordbutton}>
+                    
+                  <Ionicons name="stop" color={color ? 'red' : 'black'} size={42} />
+                    
+                </Pressable>
+
+            ) }
+           </TouchableOpacity>
+            
         </View>
       </View>
       <View style={{width: wp(20), marginHorizontal:20,alignItems: 'center', position: 'absolute',flexDirection:'row'}}>
@@ -107,7 +130,7 @@ const Recordvideo = ({navigation}) => {
           source={require('../assets/Rec.png')}
           resizeMode="center"
           style={{width: wp(15), height: hp(6)}}
-        />
+        />{!isrecording && (
          <CountDown
         until={30}
         size={20}
@@ -117,6 +140,7 @@ const Recordvideo = ({navigation}) => {
         timeToShow={['S']}
         timeLabels={{s: ''}}
       />
+        )}
       </View>
     </View>
   );

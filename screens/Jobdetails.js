@@ -15,11 +15,16 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import Simpleheader from '../components/Simpleheader';
-
+import { useRoute } from '@react-navigation/native';
 
 const Jobdetails=({navigation})=>{
+  const route=useRoute();
+  const {itom,itomid}=route.params;
+   
+   
     const [modalvisible,setmodalvisible]=useState(false);
-    const [applied,setapplied]=useState()
+    
+  
    return(
     <View style={{flex:1}}>
 
@@ -52,7 +57,7 @@ const Jobdetails=({navigation})=>{
                <Text style={[styles.Textstyle,{alignSelf:'center'}]}>دینے کا شکریہ</Text>
                <Text style={styles.Textstyle2}>ہم آپ کو اگلی معلومات</Text>
                <Text style={styles.Textstyle2}> سے آگاہ کریں گے۔</Text>
-               <TouchableOpacity  style={[styles.startbtn,{width:wp(80),marginVertical:8}]} onPress={()=>{setmodalvisible(!modalvisible);navigation.navigate('Timeline')}}>
+               <TouchableOpacity  style={[styles.startbtn,{width:wp(80),marginVertical:8}]} onPress={()=>{setmodalvisible(!modalvisible);navigation.navigate('Alljobs',itomid)}}>
                  <Text style={styles.button1}>تمام ملازمتیں دیکھیں</Text>
          </TouchableOpacity>
              </View>
@@ -62,24 +67,24 @@ const Jobdetails=({navigation})=>{
         </View>
         </Modal>
       <View style={{height:hp(95),borderTopLeftRadius:65,backgroundColor:'white'}}>
-      <Text style={styles.jobtitle}>ڈرائیور چاہیے</Text>
+      <Text style={styles.jobtitle}>{itom.jobtitle} چاہیے</Text>
       <View style={styles.jobinfo}>
       <View style={styles.jobinfocontent}>
         <Image source={require('../assets/type.png')}
                 style={{width: 17, height: 17, marginHorizontal: 3}}
           />
          <Text style={styles.contenttext}>
-                  Full-Time
+                  {itom.jobtype} 
                 </Text>
         </View>
         <View style={styles.jobinfocontent}>
          <Text style={[styles.contenttext,{marginHorizontal:6}]}>
-                  Rs.24,000
+                  Rs.{itom.salary} 
                 </Text>
         </View>
         <View style={styles.jobinfocontent}>
              <Text style={[styles.contenttext,{marginHorizontal:12}]}>
-                  Lahore
+                  {itom.location}
                 </Text>
         </View>
     </View>

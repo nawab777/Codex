@@ -19,9 +19,11 @@ import {
 
 import OTPTextView from 'react-native-otp-textinput';
 import JobSelection from "./SelectCatogery";
+import { onTextInput } from "deprecated-react-native-prop-types/DeprecatedTextInputPropTypes";
 
 
   export default function SignUp({navigation}){
+    const otpInput = useRef(null);
     const [modalvisible,setmodalvisible]=useState(false);
     const [checkotp,setcheckotp]=useState('');
     const [color,setcolor]=useState(false);
@@ -31,12 +33,16 @@ import JobSelection from "./SelectCatogery";
    navigation.goBack();
 
   }
+//   const clearText = () => {
+//     otpInput.current.clear();
+// }
   
  const Verifycredentials=()=>{
     setmodalvisible(!modalvisible);
 
  }
  const verifyOTP=()=>{
+    
     
        
       if(checkotp.length===4){
@@ -56,11 +62,12 @@ import JobSelection from "./SelectCatogery";
           
                 setcolor(true);
               
+              
       }
 
 
  }
- 
+  
    return(
     <ScrollView style={{flex:1}}>
     <View style={{flex:1,backgroundColor:'#512F7F'}}>
@@ -83,7 +90,7 @@ import JobSelection from "./SelectCatogery";
             <Text style={{color:'#51307E',fontSize:26,fontWeight:'bold',textAlign:'center',alignSelf:'center',marginRight:-20}}>کوڈ کی تصدیق</Text>
             </View>
             <View style={{justifyContent:'center',marginRight:6}}>
-              <TouchableOpacity onPress={()=>{setmodalvisible(!modalvisible);setcolor(false)}}>
+              <TouchableOpacity onPress={()=>{setmodalvisible(!modalvisible);setcolor(false);}}>
             <Image  source={require('../assets/Combined.png')} style={styles.closeicon}/>
             </TouchableOpacity>
             </View>
@@ -97,7 +104,7 @@ import JobSelection from "./SelectCatogery";
             
              <Text style={{color:'#8B94A9',fontSize:16,textAlign:'center',marginTop:3}}>اگر 60 سیکنڈ میں میسج موصول نہ  ہو تو میسج دوبارہ بیجھیےـ</Text>
              <View style={[styles.startbtn,{width:wp(80),height:hp(8)}]}>
-         <TouchableOpacity  onPress={()=>{navigation.navigate('SelectCatogery');setmodalvisible(!modalvisible);}}  >
+         <TouchableOpacity  onPress={()=>{verifyOTP();}}  >
             <Text style={{alignSelf:"center",fontSize:27,color:'#FFFFFF',fontWeight:'bold'}}>تصدیق کریں</Text>
         </TouchableOpacity>
        
